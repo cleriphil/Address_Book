@@ -1,0 +1,16 @@
+<p>Add new contact information for <%= @contact.first_name() %>:</p>
+
+<form action="/phones" method="post">
+  <input id="contact_id" name="contact_id" type="hidden" value="<%= @contact.id() %>">
+
+  <label for="area_code">Area Code:</label>
+  <input id="area_code" name="area_code" type="text">
+<br>
+  <label for="phone_number">Phone Number:</label>
+  <input id="phone_number" name="phone_number" type="text">
+<br>
+  <label for="type">Type:</label>
+  <input id="type" name="type" type="text">
+<br>
+  <button type="submit">Submit</button>
+</form>

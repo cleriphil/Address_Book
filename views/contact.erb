@@ -1,0 +1,12 @@
+<h1>Contact Info</h1>
+<h2>name: <%= @contact.first_name() %> <%= @contact.last_name() %></h2>
+<h2>birth month: <%= @contact.birth_month() %></h2>
+
+<h2><% @phones.each do |phone|%>
+<%= phone.area_code() %> <%= phone.phone_number() %> (<%= phone.type() %>)<br>
+<% end %>
+</h2>
+
+<a href="/contacts/<%= @contact.id() %>/phones/new">Add New Phone Information</a>
+<br>
+<a href="/contacts">Back to Contacts</a>

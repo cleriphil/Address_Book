@@ -69,4 +69,20 @@ describe(Contact) do
     end
   end
 
+  describe('#phones') do
+    it("initally returns an empty array of phones for a contact") do
+      new_contact = Contact.new({ :first_name => "johnny", :last_name => "cash", :birth_month => "december" })
+      expect(new_contact.phones()).to(eq([]))
+    end
+  end
+
+  describe('#add_phone') do
+    it("adds phone info to a contact") do
+      new_contact = Contact.new({ :first_name => "johnny", :last_name => "cash", :birth_month => "december" })
+      new_phone = Phone.new({ :area_code => 503, :phone_number => 555-5555, :type => "home"})
+      new_contact.add_phone(new_phone)
+      expect(new_contact.phones()).to(eq([new_phone]))
+    end
+  end
+
 end
