@@ -6,7 +6,7 @@ describe(Contact) do
   before() do
     Contact.clear()
   end
-  
+
   describe('#first_name') do
     it("will return a contact's first name") do
       new_contact = Contact.new({ :first_name => "johnny", :last_name => "cash", :birth_month => "december" })
@@ -48,6 +48,24 @@ describe(Contact) do
       new_contact.save()
       Contact.clear()
       expect(Contact.all()).to(eq([]))
+    end
+  end
+
+  describe('#id') do
+    it("returns the id of the contact") do
+      new_contact = Contact.new({ :first_name => "johnny", :last_name => "cash", :birth_month => "december" })
+      new_contact.save()
+      expect(new_contact.id()).to(eq(1))
+    end
+  end
+
+  describe('.find') do
+    it("returns a contact by its id number") do
+      new_contact = Contact.new({ :first_name => "johnny", :last_name => "cash", :birth_month => "december" })
+      new_contact.save()
+      new_contact2 = Contact.new({ :first_name => "jack", :last_name => "black", :birth_month => "january" })
+      new_contact2.save()
+      expect(Contact.find(new_contact2.id())).to(eq(new_contact2))
     end
   end
 
